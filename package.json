@@ -18,9 +18,7 @@
     "url": "https://github.com/DamienP33/gulpTasks/issues"
   },
   "homepage": "https://github.com/DamienP33/gulpTasks#readme",
-  "files": [
-    "index.js"
-  ],
+  "main":"index.js",
   "dependencies": {
     "gulp": "~3.9.0",
     "gulp-bump": "^1.0.0",
@@ -40,5 +38,6 @@
     "jshint-stylish": "~2.0.1",
     "require-dir": "^0.3.0",
     "gulp-nodemon": "^2.0.6"
-  }
+  },
+  "directories": {}
 }
