@@ -1,19 +1,19 @@
-/**
- * Created by damienp on 01/02/16.
- */
-var gulp = require('gulp');
-var gitTag = require('gulp-tag-version');
+'use strict';
 
-var configGit = require('../../config').git;
+module.exports = function(gulp, config){
+    var gitTag = require('gulp-tag-version');
 
-/**
- * Tagging the repository with package.json.
- *
- * @see https://www.npmjs.com/package/gulp-tag-version
- */
-gulp.task('git-tag', function() {
-    return gulp
-        .src(configGit.packageJson)
-        .pipe(gitTag())
-    ;
-});
+    var configGit = config.git;
+
+    /**
+     * Tagging the repository with package.json.
+     *
+     * @see https://www.npmjs.com/package/gulp-tag-version
+     */
+    gulp.task('git-tag', 'Tagging the repository with package.json.', function() {
+        return gulp
+            .src(configGit.packageJson)
+            .pipe(gitTag())
+        ;
+    });
+};
