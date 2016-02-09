@@ -24,6 +24,7 @@ module.exports = function(gulp, config) {
         return gulp.src(configAngular.configSrc)
             .pipe(ngConfig(configAngular.moduleName, {
                 wrap: true,
+                createModule: false,
                 environment: environment
             }))
             .pipe(gulp.dest(configAngular.dest))
