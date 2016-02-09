@@ -14,6 +14,7 @@ module.exports = function(gulp, config){
     require('./tasks/nodejs/server')(gulp, config);
 
     require('./tasks/angular/build')(gulp, config);
+    require('./tasks/angular/conf')(gulp, config);
 
     require('./tasks/git/tag')(gulp, config);
 };
