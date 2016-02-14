@@ -12,7 +12,7 @@ module.exports = function(gulp, config) {
      * @see https://github.com/gulpjs/gulp
      * @see tasks/js/build.js
      */
-    gulp.task('watch-js', 'Execute the tasks when JS files change.', ['concat-js'], function () {
+    gulp.task('js:watch', 'Execute the tasks when JS files change.', ['concat-js'], function () {
         gulp.watch(configJs.src, ['concat-js']);
     });
 
@@ -24,7 +24,7 @@ module.exports = function(gulp, config) {
      *
      * @see https://www.npmjs.com/package/gulp-server-livereload
      */
-    gulp.task('serve-js', 'Local webserver with livereload enabled via socket.io.', ['watch-js'], function () {
+    gulp.task('js:serve', 'Local webserver with livereload enabled via socket.io.', ['watch-js'], function () {
         gulp.src(configJs.server.rootDir)
             .pipe(server({
                 defaultFile: configJs.server.indexFile,

@@ -17,13 +17,13 @@ module.exports = function(gulp, config) {
      *     gulp feature   # makes v0.1.1 → v0.2.0
      *     gulp release   # makes v0.2.1 → v1.0.0
      */
-    gulp.task('patch', 'Bump any JSON file which supports semver versioning.', function () {
+    gulp.task('js:patch', 'Bump any JSON file which supports semver versioning.', function () {
         return incrementPackage('patch');
     });
-    gulp.task('feature', 'Bump any JSON file which supports semver versioning.', function () {
+    gulp.task('js:feature', 'Bump any JSON file which supports semver versioning.', function () {
         return incrementPackage('minor');
     });
-    gulp.task('release', 'Bump any JSON file which supports semver versioning.', function () {
+    gulp.task('js:release', 'Bump any JSON file which supports semver versioning.', function () {
         return incrementPackage('major');
     });
 

@@ -11,7 +11,7 @@ module.exports = function(gulp, config) {
      * Watch js, css and html file change
      * @see https://www.npmjs.com/package/gulp-nodemon/
      */
-    gulp.task('serve-node', 'Node server task with NodeDemon.', function () {
+    gulp.task('node:serve', 'Node server task with NodeDemon.', function () {
         nodemon({
             script: configNode.server,
             ext: 'js css html'

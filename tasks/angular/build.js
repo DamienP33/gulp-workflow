@@ -22,7 +22,7 @@ module.exports = function(gulp, config) {
      * @see https://www.npmjs.com/package/gulp-uglify
      * @see https://github.com/mishoo/UglifyJS
      */
-    gulp.task('build-angular', 'Build Angular project sources.', function () {
+    gulp.task('angular:build', 'Build Angular project sources.', function () {
         gulp.src(configAngular.src)
             .pipe(sourcemaps.init())
             .pipe(concat(configAngular.finalFileName))

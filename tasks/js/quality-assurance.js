@@ -8,7 +8,7 @@ module.exports = function(gulp, config) {
 
     var configJs = config.js;
 
-    gulp.task('qa-js', 'JSCS + JSHint', ['jscs', 'jshint']);
+    gulp.task('js:qa', 'JSCS + JSHint', ['jscs', 'jshint']);
 
     /**
      * Check JavaScript code style with jscs.
@@ -16,7 +16,7 @@ module.exports = function(gulp, config) {
      * @see https://www.npmjs.com/package/gulp-jscs
      * @see http://jscs.info/
      */
-    gulp.task('jscs', 'Check JavaScript code style with jscs.', function () {
+    gulp.task('js:cs', 'Check JavaScript code style with jscs.', function () {
         gulp.src(configJs.src)
             .pipe(jscs())
             .pipe(jscsStylish())
@@ -29,7 +29,7 @@ module.exports = function(gulp, config) {
      * @see https://www.npmjs.com/package/gulp-jshint
      * @see http://jshint.com/docs/
      */
-    gulp.task('jshint', 'Detect errors and potential problems in your JavaScript code with jshint.', function () {
+    gulp.task('js:hint', 'Detect errors and potential problems in your JavaScript code with jshint.', function () {
         gulp.src(configJs.src)
             .pipe(jshint('.jshintrc'))
             .pipe(jshint.reporter(jshintStylish))
