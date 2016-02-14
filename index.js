@@ -3,18 +3,32 @@
  */
 'use strict';
 
+var gutil = require('gulp-util');
+
+var defaultWorkflow = {
+    js: ['build', 'bump', 'quality-assurance', 'server'],
+    angular: ['build', 'conf'],
+    nodejs: ['server']
+};
+
 module.exports = function(gulp, config){
     gulp = require('gulp-help')(gulp);
 
-    require('./tasks/js/quality-assurance')(gulp, config);
-    require('./tasks/js/build')(gulp, config);
-    require('./tasks/js/bump')(gulp, config);
-    require('./tasks/js/server')(gulp, config);
+    (function (config) {
+        var workflow = config.workflow || defaultWorkflow;
 
-    require('./tasks/nodejs/server')(gulp, config);
-
-    require('./tasks/angular/build')(gulp, config);
-    require('./tasks/angular/conf')(gulp, config);
-
-    require('./tasks/git/tag')(gulp, config);
+        for(var module in workflow) {
+            if (!workflow.hasOwnProperty(module) || !Array.isArray(workflow[module])) {
+                gutil.log(gutil.colors.red('ERROR gulp-workflow :'), 'config.workflow.' + module, 'is not Array.');
+                continue;
+            }
+            workflow[module].forEach(function (subModule) {
+                try {
+                    require('./tasks/' + module + '/' + subModule)(gulp, config);
+                } catch (e) {
+                    gutil.log(gutil.colors.red('ERROR gulp-workflow :'), module + ':' + subModule, 'module not found.');
+                }
+            });
+        }
+    })(config);
 };
