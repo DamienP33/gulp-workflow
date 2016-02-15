@@ -1,6 +1,3 @@
-/**
- * Created by damienp on 03/02/16.
- */
 'use strict';
 
 var gutil = require('gulp-util');

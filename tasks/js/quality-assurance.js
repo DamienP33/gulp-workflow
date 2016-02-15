@@ -8,7 +8,7 @@ module.exports = function(gulp, config) {
 
     var configJs = config.js;
 
-    gulp.task('js:qa', 'JSCS + JSHint', ['jscs', 'jshint']);
+    gulp.task('js:qa', 'JSCS + JSHint', ['js:cs', 'js:hint']);
 
     /**
      * Check JavaScript code style with jscs.
