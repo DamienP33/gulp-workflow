@@ -21,7 +21,7 @@ module.exports = function(gulp, config) {
     });
 
     function configGenerator(environment) {
-        return gulp.src(configAngular.configSrc)
+        return gulp.src(configAngular.conf.src)
             .pipe(ngConfig(configAngular.conf.moduleName, {
                 wrap: true,
                 createModule: configAngular.conf.createModule,
