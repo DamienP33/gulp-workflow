@@ -27,7 +27,7 @@ module.exports = function(gulp, config) {
                 createModule: configAngular.conf.createModule,
                 environment: environment
             }))
-            .pipe(gulp.dest(configAngular.dest))
+            .pipe(gulp.dest(configAngular.conf.dest))
         ;
     }
 };

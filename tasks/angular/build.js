@@ -75,9 +75,9 @@ module.exports = function(gulp, config) {
         var timestamp = new  Date().getTime();
         console.log(timestamp);
 
-        gulp.src(config.js.src)
+        gulp.src(configAngular.src)
             .pipe(concat(configAngular.finalFileName))
-            .pipe(gulp.dest(config.js.dest))
+            .pipe(gulp.dest(configAngular.dest))
             .pipe(concat('app.js?v=' + timestamp))
             .pipe(ngAnnotate())
             .pipe(uglify())
