@@ -27,9 +27,9 @@ module.exports = function(gulp, config) {
     gulp.task('js:serve', 'Local webserver with livereload enabled via socket.io.', configJs.server.tasks, function () {
         gulp.src(configJs.server.rootDir)
             .pipe(server({
-                port: configJs.server.port,
+                livereload: {enable: true, port: configJs.server.socketPort || 2345},
+                port: configJs.server.port || 8000,
                 defaultFile: configJs.server.indexFile,
-                livereload: true,
                 open: false
             }))
         ;
