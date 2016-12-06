@@ -86,6 +86,7 @@ module.exports = function(gulp, config) {
 
         gulp.src(configAngular.indexHtml)
             .pipe(replace(/@version@/, '%3Fv=' + timestamp))
+            .pipe(replace(/@min@/, '.min'))
             .pipe(rename(configAngular.finalIndexHtml))
             .pipe(gulp.dest('./app'))
         ;
