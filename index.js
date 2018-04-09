@@ -5,8 +5,7 @@ var gutil = require('gulp-util');
 var defaultWorkflow = {
     js: ['build', 'bump', 'quality-assurance', 'server'],
     angular: ['build', 'conf'],
-    nodejs: ['server'],
-    css: ['sass']
+    nodejs: ['server']
 };
 
 module.exports = function(gulp, config){
