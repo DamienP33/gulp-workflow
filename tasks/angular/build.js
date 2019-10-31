@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(gulp, config) {
+    var gulpBabel = require ('gulp-babel');
     var concat     = require('gulp-concat');
     var uglify     = require('gulp-uglify');
     var ngAnnotate = require('gulp-ng-annotate');
@@ -52,7 +53,8 @@ module.exports = function(gulp, config) {
     gulp.task('angular:build:production', 'Build Angular project sources for production.', function () {
         gulp.src(configAngular.src)
             .pipe(concat(configAngular.finalFileName))
-            .pipe(ngAnnotate())
+            .pipe(gulpBabel())
+            // .pipe(ngAnnotate())
             .pipe(uglify())
             .pipe(gulp.dest(configAngular.dest))
         ;
@@ -79,7 +81,8 @@ module.exports = function(gulp, config) {
             .pipe(concat(configAngular.finalFileName))
             .pipe(gulp.dest(configAngular.dest))
             .pipe(concat('app.js?v=' + timestamp))
-            .pipe(ngAnnotate())
+            .pipe(gulpBabel())
+            // .pipe(ngAnnotate())
             .pipe(uglify())
             .pipe(gulp.dest(configAngular.dest))
         ;
